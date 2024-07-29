@@ -14,7 +14,7 @@ with col1:
 # Interactive chat in the second column
 with col2:
     st.subheader("대화창", divider="gray")
-    messages = st.container(height=400, border=True)
+    messages = st.container(height=300, border=True)
     if prompt := st.chat_input("질문을 입력하세요."):
         messages.chat_message("user").write(prompt)
         messages.chat_message("assistant").write(f"Echo: {prompt}")
