@@ -9,7 +9,7 @@ col1, col2 = st.columns(2)
 
 # Content for the first column
 with col1:
-    st.header("ÀÚ·á")
+    st.image("./img/samplemap.jpg")
 
 # Interactive chat in the second column
 with col2:
