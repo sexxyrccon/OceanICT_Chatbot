@@ -1,19 +1,20 @@
 # -*- coding: cp949 -*-
 import streamlit as st
 
-if "chat_history" not in st.session_state:
-    st.session_state.chat_history = []
+# Set the page layout to wide
+st.set_page_config(layout="wide")
 
-for content in st.session_state.chat_history:
-    with st.chat_message(content["role"]):
-        st.markdown(content['message'])    
+# Create two columns
+col1, col2 = st.columns(2)
 
-if prompt := st.chat_input("메시지를 입력하세요."):
-    with st.chat_message("user"):
-        st.markdown(prompt)
-        st.session_state.chat_history.append({"role": "user", "message": prompt})
+# Content for the first column
+with col1:
+    st.header("자료")
 
-    with st.chat_message("ai"):                
-        response = f'{prompt}... {prompt}... {prompt}...'
-        st.markdown(response)
-        st.session_state.chat_history.append({"role": "ai", "message": response})
+# Interactive chat in the second column
+with col2:
+    st.subheader("대화창", divider="gray")
+    messages = st.container(height=550, border=True)
+    if prompt := st.chat_input("질문을 입력하세요."):
+        messages.chat_message("user").write(prompt)
+        messages.chat_message("assistant").write(f"Echo: {prompt}")
