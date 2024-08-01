@@ -1,0 +1,8 @@
+langchain
+langchain_core
+langchain_openai
+langchain_community
+langchain-chroma
+lark
+pysqlite-binary
+st-gsheets-connection
